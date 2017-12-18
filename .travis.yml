@@ -7,8 +7,10 @@ services:
 
 before_install:
   - docker build -t riverron/docker-flask .
-  - docker run -d -p 127.0.0.1:8000:8000 riverron/docker-flask /bin/sh -c "curl -v http://127.0.0.1:8000"
+  - docker run -d -p 127.0.0.1:8000:8000 riverron/docker-flask
   - docker ps -a
+
+install: true
 
 script:
   - curl -v http://127.0.0.1:8000
