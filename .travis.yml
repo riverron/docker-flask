@@ -6,11 +6,11 @@ services:
   - docker
 
 before_install:
-  - docker-compose up -d
+  - docker build -t riverron/docker-flask .
+  - docker run -d -p 127.0.0.1:8000:8000 riverron/docker-flask
   - docker ps -a
-  - curl -v http://127.0.0.1:8000/seed
 
 install: true
 
 script:
-  - curl -v http://127.0.0.1:8000
+  - docker ps -a
